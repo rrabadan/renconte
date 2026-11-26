@@ -1,0 +1,17 @@
+{
+  "name": "Renconte — French Story Reader",
+  "short_name": "Renconte",
+  "description": "Snap a French children's book page and listen to natural bedtime narration.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1320",
+  "theme_color": "#0f1320",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
