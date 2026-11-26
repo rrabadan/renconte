@@ -2,8 +2,8 @@
 
 A minimal, mobile-first Progressive Web App that helps non-French-speaking parents read physical French children's books aloud to their kids:
 1. Snap a photo of a book page with your phone's camera.
-2. **Gemini 2.5 Flash** extracts clean French story text in natural reading order (handling illustrated layouts, whimsical fonts, and two-page spreads).
-3. **Gemini 2.5 Flash Preview TTS** narrates the page warmly and fluently in French.
+2. **Gemini 3.8 Flash** (`gemini-3.8-flash`, overridable via `GEMINI_VISION_MODEL`) extracts clean French story text in natural reading order (handling illustrated layouts, whimsical fonts, and two-page spreads).
+3. **Gemini 2.5 Flash Preview TTS** (`gemini-2.5-flash-preview-tts`) narrates the page warmly and fluently in French.
 
 ## Quick Start (Local)
 
@@ -37,16 +37,7 @@ A minimal, mobile-first Progressive Web App that helps non-French-speaking paren
    npm --prefix frontend run build
    ```
 
-## Deploy to Google Cloud Run (Single Container)
-
-FastAPI serves both `/api/*` and the compiled `frontend/dist` PWA from one HTTPS URL (zero CORS setup, scales to zero when idle):
-
-```bash
-gcloud run deploy renconte \
-  --source . \
-  --region europe-west1 \
-  --allow-unauthenticated \
-  --set-env-vars "GEMINI_API_KEY=your-key-here,APP_PIN=1234"
-```
-
-Open the Cloud Run URL on your phone and tap **"Add to Home Screen"** for a full-screen bedtime app experience.
+4. Serve the built PWA and API together locally:
+   ```bash
+   uv run uvicorn backend.main:app --host 0.0.0.0 --port 8080
+   ```
